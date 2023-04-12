@@ -60,12 +60,12 @@
 		2011F1B729E63B0F0028C911 /* OnboardingProject */ = {
 			isa = PBXGroup;
 			children = (
-				2011F1D129E63B600028C911 /* Utils */,
 				2011F1D029E63B5A0028C911 /* API */,
 				2011F1CF29E63B490028C911 /* Controller */,
 				2011F1CE29E63B420028C911 /* ViewModel */,
 				2011F1CD29E63B330028C911 /* Model */,
 				2011F1CC29E63B240028C911 /* View */,
+				2011F1D129E63B600028C911 /* Utils */,
 				2011F1B829E63B0F0028C911 /* AppDelegate.swift */,
 				2011F1BA29E63B0F0028C911 /* SceneDelegate.swift */,
 				2011F1BC29E63B0F0028C911 /* ViewController.swift */,
