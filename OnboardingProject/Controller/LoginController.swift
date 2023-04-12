@@ -13,55 +13,8 @@ class LoginController: UIViewController {
     
     private let iconImage = UIImageView(image: UIImage(named: "firebase-logo"))
     private let stackView = UIStackView()
-    
-    private let emailTextField: UITextField = {
-        let textField = UITextField()
-        let spacer = UIView()
-        
-        spacer.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        spacer.widthAnchor.constraint(equalToConstant: 12).isActive = true
-        
-        textField.leftView = spacer
-        textField.leftViewMode = .always
-        textField.rightView = spacer
-        textField.rightViewMode = .always
-        
-        textField.borderStyle = .none
-        textField.textColor = .white
-        textField.keyboardAppearance = .dark // gives us a dark keyboard
-        textField.backgroundColor = UIColor(white: 1, alpha: 0.1)
-        textField.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        textField.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [
-            NSAttributedString.Key.foregroundColor: UIColor(white: 1, alpha: 0.7)
-        ])
-        
-        return textField
-    }()
-    
-    private let passwordTextField: UITextField = {
-        let textField = UITextField() 
-        let spacer = UIView()
-        
-        spacer.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        spacer.widthAnchor.constraint(equalToConstant: 12).isActive = true
-        
-        textField.leftView = spacer
-        textField.leftViewMode = .always
-        textField.rightView = spacer
-        textField.rightViewMode = .always
-
-        textField.borderStyle = .none
-        textField.textColor = .white
-        textField.keyboardAppearance = .dark
-        textField.isSecureTextEntry = true
-        textField.backgroundColor = UIColor(white: 1, alpha: 0.1)
-        textField.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        textField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [
-            NSAttributedString.Key.foregroundColor: UIColor(white: 1, alpha: 0.7)
-        ])
-        
-        return textField
-    }()
+    private let emailTextField = CustomTextField(placeholder: "Email")
+    private let passwordTextField = CustomTextField(placeholder: "Password", isSecure: true)
     
     // MARK: - Lifecycle
     
