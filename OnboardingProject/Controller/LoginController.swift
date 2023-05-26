@@ -15,6 +15,15 @@ class LoginController: UIViewController {
     private let stackView = UIStackView()
     private let emailTextField = CustomTextField(placeholder: "Email")
     private let passwordTextField = CustomTextField(placeholder: "Password", isSecure: true)
+    private let loginButton: AuthButton = {
+        let button = AuthButton(type: .system)
+        
+        button.setTitle("Log in", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        button.addTarget(LoginController.self, action: #selector(handleLogin), for: .touchUpInside)
+        
+        return button
+    }()
     
     // MARK: - Lifecycle
     
@@ -40,13 +49,14 @@ extension LoginController {
         view.layer.addSublayer(gradient)
         
         iconImage.translatesAutoresizingMaskIntoConstraints = false
-        
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        
         stackView.axis = .vertical
         stackView.spacing = 20
         
         stackView.addArrangedSubview(emailTextField)
         stackView.addArrangedSubview(passwordTextField)
+        stackView.addArrangedSubview(loginButton)
         
         view.addSubview(iconImage)
         view.addSubview(stackView)
@@ -70,5 +80,13 @@ extension LoginController {
     func configureNavigationBar() {
         navigationController?.navigationBar.isHidden = true
         navigationController?.navigationBar.barStyle = .black
+    }
+}
+
+// MARK: - Actions
+
+extension LoginController {
+    @objc private func handleLogin(_ sender: UIButton) {
+        print("DEBUG: Handle login")
     }
 }
