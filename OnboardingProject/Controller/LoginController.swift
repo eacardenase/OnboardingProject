@@ -26,7 +26,7 @@ class LoginController: UIViewController {
         return button
     }()
     private let forgotPasswordButton: UIButton = {
-        let button = CustomButton(title: "Forgot your password?", subtitle: "Get help signing in.", type: .system)
+        let button = CustomButton(title: "Forgot your password?", subtitle: "Get help signing in.")
         
         button.addTarget(self, action: #selector(showForgotPassword), for: .touchUpInside)
         
@@ -45,12 +45,13 @@ class LoginController: UIViewController {
         return button
     }()
     private let dontHaveAccountButton: UIButton = {
-        let button = CustomButton(title: "Don't have an account?", subtitle: "Sign Up", type: .system, labelSize: 16)
+        let button = CustomButton(title: "Don't have an account?", subtitle: "Sign Up", labelSize: 16)
         
-        button.addTarget(self, action: #selector(handleSignup), for: .touchUpInside)
+        button.addTarget(self, action: #selector(showRegistrationController), for: .touchUpInside)
         
         return button
     }()
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -148,7 +149,9 @@ extension LoginController {
         print("DEBUG: Handle login with Google")
     }
     
-    @objc private func handleSignup(_ sender: UIButton) {
-        print("DEBUG: Handle sign up")
+    @objc private func showRegistrationController(_ sender: UIButton) {
+        let registrationController = RegistrationController()
+        
+        navigationController?.pushViewController(registrationController, animated: true)
     }
 }
