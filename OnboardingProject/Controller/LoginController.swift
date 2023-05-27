@@ -12,7 +12,8 @@ class LoginController: UIViewController {
     // MARK: - Properties
     
     private let iconImage = UIImageView(image: UIImage(named: "firebase-logo"))
-    private let stackView = UIStackView()
+    private let firstStackView = UIStackView()
+    private let secondStackView = UIStackView()
     private let emailTextField = CustomTextField(placeholder: "Email")
     private let passwordTextField = CustomTextField(placeholder: "Password", isSecure: true)
     private let loginButton: AuthButton = {
@@ -24,7 +25,6 @@ class LoginController: UIViewController {
         
         return button
     }()
-    
     private let forgotPasswordButton: UIButton = {
         let button = UIButton(type: .system)
         
@@ -44,8 +44,18 @@ class LoginController: UIViewController {
         
         return button
     }()
-    
     private let dividerView = DividerView()
+    private let googleLoginButton: UIButton = {
+        let button = UIButton(type: .system)
+        
+        button.setImage(UIImage(named: "btn_google_light_pressed_ios")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        button.setTitle(" Log in with Google", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button.addTarget(self, action: #selector(handleGoogleLogin), for: .touchUpInside)
+        
+        return button
+    }()
     
     // MARK: - Lifecycle
     
@@ -71,19 +81,25 @@ extension LoginController {
         view.layer.addSublayer(gradient)
         
         iconImage.translatesAutoresizingMaskIntoConstraints = false
-        stackView.translatesAutoresizingMaskIntoConstraints = false
+        firstStackView.translatesAutoresizingMaskIntoConstraints = false
+        secondStackView.translatesAutoresizingMaskIntoConstraints = false
         
-        stackView.axis = .vertical
-        stackView.spacing = 20
+        firstStackView.axis = .vertical
+        firstStackView.spacing = 20
+        secondStackView.axis = .vertical
+        secondStackView.spacing = 28
         
-        stackView.addArrangedSubview(emailTextField)
-        stackView.addArrangedSubview(passwordTextField)
-        stackView.addArrangedSubview(loginButton)
-        stackView.addArrangedSubview(forgotPasswordButton)
-        stackView.addArrangedSubview(dividerView)
+        firstStackView.addArrangedSubview(emailTextField)
+        firstStackView.addArrangedSubview(passwordTextField)
+        firstStackView.addArrangedSubview(loginButton)
+        
+        secondStackView.addArrangedSubview(forgotPasswordButton)
+        secondStackView.addArrangedSubview(dividerView)
+        secondStackView.addArrangedSubview(googleLoginButton)
         
         view.addSubview(iconImage)
-        view.addSubview(stackView)
+        view.addSubview(firstStackView)
+        view.addSubview(secondStackView)
         
         // iconImage
         NSLayoutConstraint.activate([
@@ -93,12 +109,20 @@ extension LoginController {
             iconImage.widthAnchor.constraint(equalToConstant: 120)
         ])
         
-        // stackView
+        // firstStackView
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: iconImage.bottomAnchor, constant: 32),
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32)
+            firstStackView.topAnchor.constraint(equalTo: iconImage.bottomAnchor, constant: 32),
+            firstStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
+            firstStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32)
         ])
+        
+        // secondStackView
+        NSLayoutConstraint.activate([
+            secondStackView.topAnchor.constraint(equalTo: firstStackView.bottomAnchor, constant: 24),
+            secondStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
+            secondStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32)
+        ])
+        
     }
 
     func configureNavigationBar() {
@@ -116,5 +140,9 @@ extension LoginController {
     
     @objc private func showForgotPassword(_ sender: UIButton) {
         print("DEBUG: Handle reset password")
+    }
+    
+    @objc private func handleGoogleLogin(_ sender: UIButton) {
+        print("DEBUG: Handle login with Google")
     }
 }
