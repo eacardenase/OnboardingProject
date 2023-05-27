@@ -20,10 +20,32 @@ class LoginController: UIViewController {
         
         button.setTitle("Log in", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-        button.addTarget(LoginController.self, action: #selector(handleLogin), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
         
         return button
     }()
+    
+    private let forgotPasswordButton: UIButton = {
+        let button = UIButton(type: .system)
+        
+        let attributedTitle = NSMutableAttributedString(string: "Forgot your password? ", attributes: [
+            NSAttributedString.Key.foregroundColor: UIColor(white: 1, alpha: 0.87),
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15)
+        ])
+        
+        attributedTitle.append(NSAttributedString(string: "Get help signing in.", attributes: [
+            NSAttributedString.Key.foregroundColor: UIColor(white: 1, alpha: 0.87),
+            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 15)
+        ]))
+        
+        button.setAttributedTitle(attributedTitle, for: .normal)
+        
+        button.addTarget(self, action: #selector(showForgotPassword), for: .touchUpInside)
+        
+        return button
+    }()
+    
+    private let dividerView = DividerView()
     
     // MARK: - Lifecycle
     
@@ -57,6 +79,8 @@ extension LoginController {
         stackView.addArrangedSubview(emailTextField)
         stackView.addArrangedSubview(passwordTextField)
         stackView.addArrangedSubview(loginButton)
+        stackView.addArrangedSubview(forgotPasswordButton)
+        stackView.addArrangedSubview(dividerView)
         
         view.addSubview(iconImage)
         view.addSubview(stackView)
@@ -88,5 +112,9 @@ extension LoginController {
 extension LoginController {
     @objc private func handleLogin(_ sender: UIButton) {
         print("DEBUG: Handle login")
+    }
+    
+    @objc private func showForgotPassword(_ sender: UIButton) {
+        print("DEBUG: Handle reset password")
     }
 }
