@@ -17,6 +17,7 @@
 		2011F1D329E63B7C0028C911 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2011F1D229E63B7C0028C911 /* HomeController.swift */; };
 		2011F1D529E63B8B0028C911 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2011F1D429E63B8B0028C911 /* LoginController.swift */; };
 		20DCD5272A218D1C007F7145 /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DCD5262A218D1C007F7145 /* DividerView.swift */; };
+		20DCD5292A2194FE007F7145 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DCD5282A2194FE007F7145 /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		2011F1D429E63B8B0028C911 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		2011F1D629E6400F0028C911 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		20DCD5262A218D1C007F7145 /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
+		20DCD5282A2194FE007F7145 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				200E692C29E70F9100648594 /* CustomTextField.swift */,
+				20DCD5282A2194FE007F7145 /* CustomButton.swift */,
 				20DCD5262A218D1C007F7145 /* DividerView.swift */,
 				200E692E29E7134A00648594 /* AuthButton.swift */,
 			);
@@ -201,6 +204,7 @@
 			files = (
 				2011F1D329E63B7C0028C911 /* HomeController.swift in Sources */,
 				200E692F29E7134A00648594 /* AuthButton.swift in Sources */,
+				20DCD5292A2194FE007F7145 /* CustomButton.swift in Sources */,
 				2011F1BD29E63B0F0028C911 /* ViewController.swift in Sources */,
 				200E692D29E70F9100648594 /* CustomTextField.swift in Sources */,
 				2011F1B929E63B0F0028C911 /* AppDelegate.swift in Sources */,

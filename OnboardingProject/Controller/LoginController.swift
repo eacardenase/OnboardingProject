@@ -26,19 +26,7 @@ class LoginController: UIViewController {
         return button
     }()
     private let forgotPasswordButton: UIButton = {
-        let button = UIButton(type: .system)
-        
-        let attributedTitle = NSMutableAttributedString(string: "Forgot your password? ", attributes: [
-            NSAttributedString.Key.foregroundColor: UIColor(white: 1, alpha: 0.87),
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15)
-        ])
-        
-        attributedTitle.append(NSAttributedString(string: "Get help signing in.", attributes: [
-            NSAttributedString.Key.foregroundColor: UIColor(white: 1, alpha: 0.87),
-            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 15)
-        ]))
-        
-        button.setAttributedTitle(attributedTitle, for: .normal)
+        let button = CustomButton(title: "Forgot your password?", subtitle: "Get help signing in.", type: .system)
         
         button.addTarget(self, action: #selector(showForgotPassword), for: .touchUpInside)
         
@@ -56,7 +44,13 @@ class LoginController: UIViewController {
         
         return button
     }()
-    
+    private let dontHaveAccountButton: UIButton = {
+        let button = CustomButton(title: "Don't have an account?", subtitle: "Sign Up", type: .system, labelSize: 16)
+        
+        button.addTarget(self, action: #selector(handleSignup), for: .touchUpInside)
+        
+        return button
+    }()
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -83,6 +77,7 @@ extension LoginController {
         iconImage.translatesAutoresizingMaskIntoConstraints = false
         firstStackView.translatesAutoresizingMaskIntoConstraints = false
         secondStackView.translatesAutoresizingMaskIntoConstraints = false
+        dontHaveAccountButton.translatesAutoresizingMaskIntoConstraints = false
         
         firstStackView.axis = .vertical
         firstStackView.spacing = 20
@@ -100,6 +95,7 @@ extension LoginController {
         view.addSubview(iconImage)
         view.addSubview(firstStackView)
         view.addSubview(secondStackView)
+        view.addSubview(dontHaveAccountButton)
         
         // iconImage
         NSLayoutConstraint.activate([
@@ -123,6 +119,12 @@ extension LoginController {
             secondStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32)
         ])
         
+        // dontHaveAccountButton
+        NSLayoutConstraint.activate([
+            dontHaveAccountButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            dontHaveAccountButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
+        
     }
 
     func configureNavigationBar() {
@@ -144,5 +146,9 @@ extension LoginController {
     
     @objc private func handleGoogleLogin(_ sender: UIButton) {
         print("DEBUG: Handle login with Google")
+    }
+    
+    @objc private func handleSignup(_ sender: UIButton) {
+        print("DEBUG: Handle sign up")
     }
 }
