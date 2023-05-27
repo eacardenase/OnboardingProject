@@ -8,32 +8,18 @@
 import UIKit
 
 class CustomButton: UIButton {
-
-    private let title: String
-    private let subtitle: String
-    private let type: ButtonType
-    private let labelSize: CGFloat
     
-    init(title: String, subtitle: String, type: ButtonType, labelSize: CGFloat = 15) {
-        self.title = title
-        self.subtitle = subtitle
-        self.type = type
-        self.labelSize = labelSize
+    convenience init(title: String, subtitle: String, labelSize: CGFloat = 15) {
+        self.init(type: .system)
         
-        super.init(frame: .zero)
-        
-        configureUI()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        configureUI(title, subtitle, labelSize)
     }
 }
 
 // MARK: Helpers
 
 extension CustomButton {
-    private func configureUI() {
+    private func configureUI(_ title: String, _ subtitle: String, _ labelSize: CGFloat) {
         let attributedTitle = NSMutableAttributedString(string: "\(title) ", attributes: [
             .font: UIFont.systemFont(ofSize: labelSize),
             .foregroundColor: UIColor(white: 1, alpha: 0.87)
