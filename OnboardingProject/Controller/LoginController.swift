@@ -11,12 +11,14 @@ class LoginController: UIViewController {
     
     // MARK: - Properties
     
+    private var viewModel = LoginViewModel()
+    
     private let iconImage = UIImageView(image: UIImage(named: "firebase-logo"))
     private let firstStackView = UIStackView()
     private let secondStackView = UIStackView()
     private let emailTextField = CustomTextField(placeholder: "Email")
     private let passwordTextField = CustomTextField(placeholder: "Password", isSecure: true)
-    private let loginButton: AuthButton = {
+    lazy private var loginButton: AuthButton = {
         let button = AuthButton(type: .system)
         
         button.setTitle("Log in", for: .normal)
@@ -58,13 +60,14 @@ class LoginController: UIViewController {
         super.viewDidLoad()
 
         configureUI()
+        configureNotificationObservers()
     }
 }
 
 // MARK: - Helpers
 
 extension LoginController {
-    func configureUI() {
+    private func configureUI() {
         configureNavigationBar()
         configureGradientLayer()
         
@@ -121,9 +124,20 @@ extension LoginController {
         
     }
 
-    func configureNavigationBar() {
+    private func configureNavigationBar() {
         navigationController?.navigationBar.isHidden = true
         navigationController?.navigationBar.barStyle = .black
+    }
+    
+    private func configureNotificationObservers() {
+        emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+    }
+    
+    private func updateForm() -> Void {
+        loginButton.isEnabled = viewModel.shouldEnableButton
+        loginButton.setTitleColor(viewModel.buttonTitleColor, for: .normal)
+        loginButton.backgroundColor = viewModel.buttonBackgroundColor
     }
 }
 
@@ -148,5 +162,15 @@ extension LoginController {
         let registrationController = RegistrationController()
         
         navigationController?.pushViewController(registrationController, animated: true)
+    }
+    
+    @objc private func textDidChange(_ sender: UITextField) -> Void {
+        if sender == emailTextField {
+            viewModel.email = sender.text
+        } else {
+            viewModel.password = sender.text
+        }
+        
+        updateForm()
     }
 }

@@ -9,6 +9,11 @@ import UIKit
 
 class AuthButton: UIButton {
     
+    static let enabledBackgroundColor = UIColor(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)
+    static let disabledBackgroundColor = UIColor(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1).withAlphaComponent(0.5)
+    static let enabledTitleColor = UIColor.white
+    static let disabledTitleColor = UIColor(white: 1, alpha: 0.67)
+    
     // MARK: - Lifecycle
     
     override init(frame: CGRect) {
@@ -32,8 +37,8 @@ class AuthButton: UIButton {
 extension AuthButton {
     
     private func configureUI() {
-        backgroundColor = UIColor(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1).withAlphaComponent(0.5)
-        setTitleColor(UIColor(white: 1, alpha: 0.67), for: .normal)
+        backgroundColor = Self.disabledBackgroundColor
+        setTitleColor(Self.disabledTitleColor, for: .normal)
         isEnabled = false
         layer.cornerRadius = 5
     }

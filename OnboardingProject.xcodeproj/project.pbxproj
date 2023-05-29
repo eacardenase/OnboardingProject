@@ -21,6 +21,9 @@
 		2077B0882A225516004108DA /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2077B0872A225516004108DA /* RegistrationController.swift */; };
 		20DCD5272A218D1C007F7145 /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DCD5262A218D1C007F7145 /* DividerView.swift */; };
 		20DCD5292A2194FE007F7145 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DCD5282A2194FE007F7145 /* CustomButton.swift */; };
+		20E21D8F2A2556BB00D6085E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E21D8E2A2556BB00D6085E /* LoginViewModel.swift */; };
+		20E21D912A2556D500D6085E /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E21D902A2556D500D6085E /* RegistrationViewModel.swift */; };
+		20E21D932A2556E500D6085E /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E21D922A2556E500D6085E /* ResetPasswordViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +44,9 @@
 		2077B0872A225516004108DA /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		20DCD5262A218D1C007F7145 /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
 		20DCD5282A2194FE007F7145 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		20E21D8E2A2556BB00D6085E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		20E21D902A2556D500D6085E /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		20E21D922A2556E500D6085E /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +117,7 @@
 		2011F1CE29E63B420028C911 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				20E21D8D2A2556A500D6085E /* authentication */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -139,6 +146,16 @@
 				2004F8FF2A25426600D8BF63 /* UIVIewController+Utils.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		20E21D8D2A2556A500D6085E /* authentication */ = {
+			isa = PBXGroup;
+			children = (
+				20E21D8E2A2556BB00D6085E /* LoginViewModel.swift */,
+				20E21D902A2556D500D6085E /* RegistrationViewModel.swift */,
+				20E21D922A2556E500D6085E /* ResetPasswordViewModel.swift */,
+			);
+			path = authentication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,9 +233,12 @@
 				200E692F29E7134A00648594 /* AuthButton.swift in Sources */,
 				20DCD5292A2194FE007F7145 /* CustomButton.swift in Sources */,
 				2011F1BD29E63B0F0028C911 /* ViewController.swift in Sources */,
+				20E21D8F2A2556BB00D6085E /* LoginViewModel.swift in Sources */,
 				200E692D29E70F9100648594 /* CustomTextField.swift in Sources */,
 				2011F1B929E63B0F0028C911 /* AppDelegate.swift in Sources */,
+				20E21D932A2556E500D6085E /* ResetPasswordViewModel.swift in Sources */,
 				2004F8FE2A25395B00D8BF63 /* ResetPasswordController.swift in Sources */,
+				20E21D912A2556D500D6085E /* RegistrationViewModel.swift in Sources */,
 				2011F1BB29E63B0F0028C911 /* SceneDelegate.swift in Sources */,
 				20DCD5272A218D1C007F7145 /* DividerView.swift in Sources */,
 				2077B0882A225516004108DA /* RegistrationController.swift in Sources */,
