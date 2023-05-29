@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2004F8FE2A25395B00D8BF63 /* ResetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2004F8FD2A25395B00D8BF63 /* ResetPasswordController.swift */; };
 		200E692D29E70F9100648594 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200E692C29E70F9100648594 /* CustomTextField.swift */; };
 		200E692F29E7134A00648594 /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200E692E29E7134A00648594 /* AuthButton.swift */; };
 		2011F1B929E63B0F0028C911 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2011F1B829E63B0F0028C911 /* AppDelegate.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2004F8FD2A25395B00D8BF63 /* ResetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordController.swift; sourceTree = "<group>"; };
 		200E692C29E70F9100648594 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		200E692E29E7134A00648594 /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
 		2011F1B529E63B0F0028C911 /* OnboardingProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnboardingProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				2011F1D229E63B7C0028C911 /* HomeController.swift */,
+				2004F8FD2A25395B00D8BF63 /* ResetPasswordController.swift */,
 				2011F1D429E63B8B0028C911 /* LoginController.swift */,
 				2077B0872A225516004108DA /* RegistrationController.swift */,
 			);
@@ -211,6 +214,7 @@
 				2011F1BD29E63B0F0028C911 /* ViewController.swift in Sources */,
 				200E692D29E70F9100648594 /* CustomTextField.swift in Sources */,
 				2011F1B929E63B0F0028C911 /* AppDelegate.swift in Sources */,
+				2004F8FE2A25395B00D8BF63 /* ResetPasswordController.swift in Sources */,
 				2011F1BB29E63B0F0028C911 /* SceneDelegate.swift in Sources */,
 				20DCD5272A218D1C007F7145 /* DividerView.swift in Sources */,
 				2077B0882A225516004108DA /* RegistrationController.swift in Sources */,
