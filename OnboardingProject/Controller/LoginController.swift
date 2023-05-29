@@ -66,14 +66,7 @@ class LoginController: UIViewController {
 extension LoginController {
     func configureUI() {
         configureNavigationBar()
-        
-        let gradient = CAGradientLayer()
-        
-        gradient.colors = [UIColor.systemPurple.cgColor, UIColor.systemCyan.cgColor]
-        gradient.locations = [0, 1]
-        gradient.frame = view.frame
-        
-        view.layer.addSublayer(gradient)
+        configureGradientLayer()
         
         iconImage.translatesAutoresizingMaskIntoConstraints = false
         firstStackView.translatesAutoresizingMaskIntoConstraints = false

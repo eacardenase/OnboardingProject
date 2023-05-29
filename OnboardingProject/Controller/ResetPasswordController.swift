@@ -38,16 +38,10 @@ class ResetPasswordController: UIViewController {
 extension ResetPasswordController {
     private func configureUI() {
         
+        configureGradientLayer()
+        
         let backButtonImage = UIImage(systemName: "chevron.left")!.withTintColor(.white, renderingMode: .alwaysOriginal)
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: backButtonImage, style: .plain, target: self, action: #selector(handleDismissal))
-        
-        let gradient = CAGradientLayer()
-        
-        gradient.colors = [UIColor.systemPurple.cgColor, UIColor.systemCyan.cgColor]
-        gradient.locations = [0, 1]
-        gradient.frame = view.frame
-        
-        view.layer.addSublayer(gradient)
         
         stackView.axis = .vertical
         stackView.spacing = 20

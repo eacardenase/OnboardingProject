@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2004F8FE2A25395B00D8BF63 /* ResetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2004F8FD2A25395B00D8BF63 /* ResetPasswordController.swift */; };
+		2004F9002A25426600D8BF63 /* UIVIewController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2004F8FF2A25426600D8BF63 /* UIVIewController+Utils.swift */; };
 		200E692D29E70F9100648594 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200E692C29E70F9100648594 /* CustomTextField.swift */; };
 		200E692F29E7134A00648594 /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200E692E29E7134A00648594 /* AuthButton.swift */; };
 		2011F1B929E63B0F0028C911 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2011F1B829E63B0F0028C911 /* AppDelegate.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		2004F8FD2A25395B00D8BF63 /* ResetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordController.swift; sourceTree = "<group>"; };
+		2004F8FF2A25426600D8BF63 /* UIVIewController+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIewController+Utils.swift"; sourceTree = "<group>"; };
 		200E692C29E70F9100648594 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		200E692E29E7134A00648594 /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
 		2011F1B529E63B0F0028C911 /* OnboardingProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnboardingProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +136,7 @@
 		2011F1D129E63B600028C911 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				2004F8FF2A25426600D8BF63 /* UIVIewController+Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2004F9002A25426600D8BF63 /* UIVIewController+Utils.swift in Sources */,
 				2011F1D329E63B7C0028C911 /* HomeController.swift in Sources */,
 				200E692F29E7134A00648594 /* AuthButton.swift in Sources */,
 				20DCD5292A2194FE007F7145 /* CustomButton.swift in Sources */,

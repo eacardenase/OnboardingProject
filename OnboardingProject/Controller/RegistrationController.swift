@@ -47,13 +47,7 @@ class RegistrationController: UIViewController {
 
 extension RegistrationController {
     private func configureUI() {
-        let gradient = CAGradientLayer()
-        
-        gradient.colors = [UIColor.systemPurple.cgColor, UIColor.systemCyan.cgColor]
-        gradient.locations = [0, 1]
-        gradient.frame = view.frame
-        
-        view.layer.addSublayer(gradient)
+        configureGradientLayer()
         
         iconImage.translatesAutoresizingMaskIntoConstraints = false
         stackView.translatesAutoresizingMaskIntoConstraints = false
