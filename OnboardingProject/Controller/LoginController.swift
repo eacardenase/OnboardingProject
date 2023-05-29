@@ -129,7 +129,7 @@ extension LoginController {
     }
 
     func configureNavigationBar() {
-        navigationController?.navigationBar.isHidden = true
+//        navigationController?.navigationBar.isHidden = true
         navigationController?.navigationBar.barStyle = .black
     }
 }

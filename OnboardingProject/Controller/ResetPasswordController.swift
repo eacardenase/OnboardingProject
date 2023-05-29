@@ -23,16 +23,6 @@ class ResetPasswordController: UIViewController {
         
         return button
     }()
-    private let backButton: UIButton = {
-        let button = UIButton(type: .system)
-
-        button.tintColor = .white
-        button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-        button.addTarget(self, action: #selector(handleDismissal), for: .touchUpInside)
-
-        return button
-    }()
     
     // MARK: - Lifecycle
     
@@ -48,6 +38,9 @@ class ResetPasswordController: UIViewController {
 extension ResetPasswordController {
     private func configureUI() {
         
+        let backButtonImage = UIImage(systemName: "chevron.left")!.withTintColor(.white, renderingMode: .alwaysOriginal)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: backButtonImage, style: .plain, target: self, action: #selector(handleDismissal))
+        
         let gradient = CAGradientLayer()
         
         gradient.colors = [UIColor.systemPurple.cgColor, UIColor.systemCyan.cgColor]
@@ -59,22 +52,14 @@ extension ResetPasswordController {
         stackView.axis = .vertical
         stackView.spacing = 20
         
-        backButton.translatesAutoresizingMaskIntoConstraints = false
         iconImage.translatesAutoresizingMaskIntoConstraints = false
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         stackView.addArrangedSubview(emailTextField)
         stackView.addArrangedSubview(resetPasswordButton)
         
-        view.addSubview(backButton)
         view.addSubview(iconImage)
         view.addSubview(stackView)
-        
-        // backButton
-        NSLayoutConstraint.activate([
-            backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-            backButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16)
-        ])
         
         // iconImage
         NSLayoutConstraint.activate([
