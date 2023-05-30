@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginController: UIViewController {
     
@@ -134,7 +135,22 @@ extension LoginController {
 
 extension LoginController {
     @objc private func handleLogin(_ sender: UIButton) {
-        print("DEBUG: Handle login")
+        guard let email = emailTextField.text,
+              let password = passwordTextField.text else { return }
+        
+        AuthService.logUserIn(withEmail: email, password: password) { result, error in
+            if let error = error {
+                let ac = UIAlertController(title: "Oops!", message: error.localizedDescription, preferredStyle: .alert)
+                
+                ac.addAction(UIAlertAction(title: "OK", style: .default))
+                
+                self.present(ac, animated: true)
+                
+                return
+            }
+            
+            self.dismiss(animated: true)
+        }
     }
     
     @objc private func showForgotPassword(_ sender: UIButton) {

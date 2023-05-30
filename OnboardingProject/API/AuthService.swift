@@ -39,4 +39,8 @@ struct AuthService {
             K.FStore.COLLECTION_USERS.document(uid).setData(data, completion: completion)
         }
     }
+    
+    static func logUserIn(withEmail email: String, password: String, completion: ((AuthDataResult?, Error?) -> Void)?) {
+        Auth.auth().signIn(withEmail: email, password: password, completion: completion)
+    }
 }
