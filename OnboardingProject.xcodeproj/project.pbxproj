@@ -18,12 +18,20 @@
 		2011F1C529E63B100028C911 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2011F1C329E63B100028C911 /* LaunchScreen.storyboard */; };
 		2011F1D329E63B7C0028C911 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2011F1D229E63B7C0028C911 /* HomeController.swift */; };
 		2011F1D529E63B8B0028C911 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2011F1D429E63B8B0028C911 /* LoginController.swift */; };
+		2039E6982A2591D500810DDA /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2039E6972A2591D500810DDA /* FirebaseAuth */; };
+		2039E69A2A2591D500810DDA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 2039E6992A2591D500810DDA /* FirebaseFirestore */; };
+		2039E69C2A2591D500810DDA /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 2039E69B2A2591D500810DDA /* FirebaseStorage */; };
+		2039E69E2A25921D00810DDA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2039E69D2A25921D00810DDA /* GoogleService-Info.plist */; };
+		2039E6A12A2592D900810DDA /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 2039E6A02A2592D900810DDA /* JGProgressHUD */; };
+		2039E6A42A25935700810DDA /* PaperOnboarding in Frameworks */ = {isa = PBXBuildFile; productRef = 2039E6A32A25935700810DDA /* PaperOnboarding */; };
 		2077B0882A225516004108DA /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2077B0872A225516004108DA /* RegistrationController.swift */; };
 		20DCD5272A218D1C007F7145 /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DCD5262A218D1C007F7145 /* DividerView.swift */; };
 		20DCD5292A2194FE007F7145 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DCD5282A2194FE007F7145 /* CustomButton.swift */; };
 		20E21D8F2A2556BB00D6085E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E21D8E2A2556BB00D6085E /* LoginViewModel.swift */; };
 		20E21D912A2556D500D6085E /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E21D902A2556D500D6085E /* RegistrationViewModel.swift */; };
 		20E21D932A2556E500D6085E /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E21D922A2556E500D6085E /* ResetPasswordViewModel.swift */; };
+		20E21D952A2561AB00D6085E /* AuthenticationViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E21D942A2561AB00D6085E /* AuthenticationViewModelProtocol.swift */; };
+		20E21D972A25661700D6085E /* AuthFormViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E21D962A25661700D6085E /* AuthFormViewModelProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,12 +49,15 @@
 		2011F1D229E63B7C0028C911 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		2011F1D429E63B8B0028C911 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		2011F1D629E6400F0028C911 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		2039E69D2A25921D00810DDA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2077B0872A225516004108DA /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		20DCD5262A218D1C007F7145 /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
 		20DCD5282A2194FE007F7145 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		20E21D8E2A2556BB00D6085E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		20E21D902A2556D500D6085E /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		20E21D922A2556E500D6085E /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
+		20E21D942A2561AB00D6085E /* AuthenticationViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModelProtocol.swift; sourceTree = "<group>"; };
+		20E21D962A25661700D6085E /* AuthFormViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFormViewModelProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +65,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2039E6A12A2592D900810DDA /* JGProgressHUD in Frameworks */,
+				2039E6982A2591D500810DDA /* FirebaseAuth in Frameworks */,
+				2039E69A2A2591D500810DDA /* FirebaseFirestore in Frameworks */,
+				2039E69C2A2591D500810DDA /* FirebaseStorage in Frameworks */,
+				2039E6A42A25935700810DDA /* PaperOnboarding in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +108,7 @@
 				2011F1C129E63B100028C911 /* Assets.xcassets */,
 				2011F1C329E63B100028C911 /* LaunchScreen.storyboard */,
 				2011F1C629E63B100028C911 /* Info.plist */,
+				2039E69D2A25921D00810DDA /* GoogleService-Info.plist */,
 			);
 			path = OnboardingProject;
 			sourceTree = "<group>";
@@ -126,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				2011F1D229E63B7C0028C911 /* HomeController.swift */,
+				20E21D962A25661700D6085E /* AuthFormViewModelProtocol.swift */,
 				2004F8FD2A25395B00D8BF63 /* ResetPasswordController.swift */,
 				2011F1D429E63B8B0028C911 /* LoginController.swift */,
 				2077B0872A225516004108DA /* RegistrationController.swift */,
@@ -151,6 +169,7 @@
 		20E21D8D2A2556A500D6085E /* authentication */ = {
 			isa = PBXGroup;
 			children = (
+				20E21D942A2561AB00D6085E /* AuthenticationViewModelProtocol.swift */,
 				20E21D8E2A2556BB00D6085E /* LoginViewModel.swift */,
 				20E21D902A2556D500D6085E /* RegistrationViewModel.swift */,
 				20E21D922A2556E500D6085E /* ResetPasswordViewModel.swift */,
@@ -174,6 +193,13 @@
 			dependencies = (
 			);
 			name = OnboardingProject;
+			packageProductDependencies = (
+				2039E6972A2591D500810DDA /* FirebaseAuth */,
+				2039E6992A2591D500810DDA /* FirebaseFirestore */,
+				2039E69B2A2591D500810DDA /* FirebaseStorage */,
+				2039E6A02A2592D900810DDA /* JGProgressHUD */,
+				2039E6A32A25935700810DDA /* PaperOnboarding */,
+			);
 			productName = OnboardingProject;
 			productReference = 2011F1B529E63B0F0028C911 /* OnboardingProject.app */;
 			productType = "com.apple.product-type.application";
@@ -202,6 +228,11 @@
 				Base,
 			);
 			mainGroup = 2011F1AC29E63B0F0028C911;
+			packageReferences = (
+				2039E6962A2591D500810DDA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				2039E69F2A2592D900810DDA /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
+				2039E6A22A25935700810DDA /* XCRemoteSwiftPackageReference "paper-onboarding" */,
+			);
 			productRefGroup = 2011F1B629E63B0F0028C911 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -218,6 +249,7 @@
 			files = (
 				2011F1C529E63B100028C911 /* LaunchScreen.storyboard in Resources */,
 				2011F1C229E63B100028C911 /* Assets.xcassets in Resources */,
+				2039E69E2A25921D00810DDA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,7 +273,9 @@
 				20E21D912A2556D500D6085E /* RegistrationViewModel.swift in Sources */,
 				2011F1BB29E63B0F0028C911 /* SceneDelegate.swift in Sources */,
 				20DCD5272A218D1C007F7145 /* DividerView.swift in Sources */,
+				20E21D972A25661700D6085E /* AuthFormViewModelProtocol.swift in Sources */,
 				2077B0882A225516004108DA /* RegistrationController.swift in Sources */,
+				20E21D952A2561AB00D6085E /* AuthenticationViewModelProtocol.swift in Sources */,
 				2011F1D529E63B8B0028C911 /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -450,6 +484,61 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2039E6962A2591D500810DDA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+		2039E69F2A2592D900810DDA /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		2039E6A22A25935700810DDA /* XCRemoteSwiftPackageReference "paper-onboarding" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Ramotion/paper-onboarding";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2039E6972A2591D500810DDA /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2039E6962A2591D500810DDA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		2039E6992A2591D500810DDA /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2039E6962A2591D500810DDA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		2039E69B2A2591D500810DDA /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2039E6962A2591D500810DDA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		2039E6A02A2592D900810DDA /* JGProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2039E69F2A2592D900810DDA /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
+			productName = JGProgressHUD;
+		};
+		2039E6A32A25935700810DDA /* PaperOnboarding */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2039E6A22A25935700810DDA /* XCRemoteSwiftPackageReference "paper-onboarding" */;
+			productName = PaperOnboarding;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2011F1AD29E63B0F0028C911 /* Project object */;
 }

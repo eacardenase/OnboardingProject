@@ -5,9 +5,9 @@
 //  Created by Edwin Cardenas on 5/29/23.
 //
 
-import Foundation
+import UIKit
 
-struct ResetPasswordViewModel {
+struct ResetPasswordViewModel: AuthenticationViewModelProtocol {
     var email: String?
     
     var formIsValid: Bool {

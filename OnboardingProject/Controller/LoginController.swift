@@ -128,17 +128,6 @@ extension LoginController {
         navigationController?.navigationBar.isHidden = true
         navigationController?.navigationBar.barStyle = .black
     }
-    
-    private func configureNotificationObservers() {
-        emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
-        passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
-    }
-    
-    private func updateForm() -> Void {
-        loginButton.isEnabled = viewModel.shouldEnableButton
-        loginButton.setTitleColor(viewModel.buttonTitleColor, for: .normal)
-        loginButton.backgroundColor = viewModel.buttonBackgroundColor
-    }
 }
 
 // MARK: - Actions
@@ -172,5 +161,20 @@ extension LoginController {
         }
         
         updateForm()
+    }
+}
+
+// MARK: - AuthFormViewModelProtocol
+
+extension LoginController: AuthFormViewModelProtocol {
+    func configureNotificationObservers() -> Void {
+        emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+    }
+    
+    func updateForm() -> Void {
+        loginButton.isEnabled = viewModel.shouldEnableButton
+        loginButton.setTitleColor(viewModel.buttonTitleColor, for: .normal)
+        loginButton.backgroundColor = viewModel.buttonBackgroundColor
     }
 }

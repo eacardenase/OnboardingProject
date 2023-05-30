@@ -7,23 +7,12 @@
 
 import UIKit
 
-struct LoginViewModel {
+struct LoginViewModel: AuthenticationViewModelProtocol {
     var email: String?
     var password: String?
     
     var formIsValid: Bool {
         return email?.isEmpty == false
         && password?.isEmpty == false
-    }
-    var shouldEnableButton: Bool {
-        return formIsValid
-    }
-    var buttonTitleColor: UIColor {
-        return formIsValid ? AuthButton.enabledTitleColor
-        : AuthButton.disabledTitleColor
-    }
-    var buttonBackgroundColor: UIColor {
-        return formIsValid ? AuthButton.enabledBackgroundColor
-        : AuthButton.disabledBackgroundColor
     }
 }

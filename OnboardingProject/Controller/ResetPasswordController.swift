@@ -11,6 +11,8 @@ class ResetPasswordController: UIViewController {
     
     // MARK: - Properties
     
+    private var viewModel = ResetPasswordViewModel()
+    
     private let iconImage = UIImageView(image: UIImage(named: "firebase-logo"))
     private let stackView = UIStackView()
     private let emailTextField = CustomTextField(placeholder: "Email")
@@ -40,6 +42,7 @@ class ResetPasswordController: UIViewController {
         super.viewDidLoad()
         
         configureUI()
+        configureNotificationObservers()
     }
 }
 
@@ -97,5 +100,25 @@ extension ResetPasswordController {
     
     @objc private func handleDismissal(_ sender: UIButton) -> Void {
         navigationController?.popViewController(animated: true)
+    }
+    
+    @objc private func textDidChange(_ sender: UITextField) -> Void {
+        viewModel.email = sender.text
+        
+        updateForm()
+    }
+}
+
+// MARK: - AuthFormViewModelProtocol
+
+extension ResetPasswordController: AuthFormViewModelProtocol {
+    func configureNotificationObservers() -> Void {
+        emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+    }
+    
+    func updateForm() -> Void {
+        resetPasswordButton.isEnabled = viewModel.shouldEnableButton
+        resetPasswordButton.setTitleColor(viewModel.buttonTitleColor, for: .normal)
+        resetPasswordButton.backgroundColor = viewModel.buttonBackgroundColor
     }
 }
