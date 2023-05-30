@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2002A1E52A26980F005EE0E4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2002A1E42A26980F005EE0E4 /* GoogleService-Info.plist */; };
+		2002A1E72A269B1B005EE0E4 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2002A1E62A269B1B005EE0E4 /* AuthService.swift */; };
+		2002A1E92A269C73005EE0E4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2002A1E82A269C73005EE0E4 /* Constants.swift */; };
 		2004F8FE2A25395B00D8BF63 /* ResetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2004F8FD2A25395B00D8BF63 /* ResetPasswordController.swift */; };
 		2004F9002A25426600D8BF63 /* UIVIewController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2004F8FF2A25426600D8BF63 /* UIVIewController+Utils.swift */; };
 		200E692D29E70F9100648594 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200E692C29E70F9100648594 /* CustomTextField.swift */; };
@@ -21,7 +24,6 @@
 		2039E6982A2591D500810DDA /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2039E6972A2591D500810DDA /* FirebaseAuth */; };
 		2039E69A2A2591D500810DDA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 2039E6992A2591D500810DDA /* FirebaseFirestore */; };
 		2039E69C2A2591D500810DDA /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 2039E69B2A2591D500810DDA /* FirebaseStorage */; };
-		2039E69E2A25921D00810DDA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2039E69D2A25921D00810DDA /* GoogleService-Info.plist */; };
 		2039E6A12A2592D900810DDA /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 2039E6A02A2592D900810DDA /* JGProgressHUD */; };
 		2039E6A42A25935700810DDA /* PaperOnboarding in Frameworks */ = {isa = PBXBuildFile; productRef = 2039E6A32A25935700810DDA /* PaperOnboarding */; };
 		2077B0882A225516004108DA /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2077B0872A225516004108DA /* RegistrationController.swift */; };
@@ -35,6 +37,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2002A1E42A26980F005EE0E4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2002A1E62A269B1B005EE0E4 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		2002A1E82A269C73005EE0E4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2004F8FD2A25395B00D8BF63 /* ResetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordController.swift; sourceTree = "<group>"; };
 		2004F8FF2A25426600D8BF63 /* UIVIewController+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIewController+Utils.swift"; sourceTree = "<group>"; };
 		200E692C29E70F9100648594 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -49,7 +54,6 @@
 		2011F1D229E63B7C0028C911 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		2011F1D429E63B8B0028C911 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		2011F1D629E6400F0028C911 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		2039E69D2A25921D00810DDA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2077B0872A225516004108DA /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		20DCD5262A218D1C007F7145 /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
 		20DCD5282A2194FE007F7145 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
@@ -108,7 +112,7 @@
 				2011F1C129E63B100028C911 /* Assets.xcassets */,
 				2011F1C329E63B100028C911 /* LaunchScreen.storyboard */,
 				2011F1C629E63B100028C911 /* Info.plist */,
-				2039E69D2A25921D00810DDA /* GoogleService-Info.plist */,
+				2002A1E42A26980F005EE0E4 /* GoogleService-Info.plist */,
 			);
 			path = OnboardingProject;
 			sourceTree = "<group>";
@@ -154,6 +158,7 @@
 		2011F1D029E63B5A0028C911 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				2002A1E62A269B1B005EE0E4 /* AuthService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -162,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				2004F8FF2A25426600D8BF63 /* UIVIewController+Utils.swift */,
+				2002A1E82A269C73005EE0E4 /* Constants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -249,7 +255,7 @@
 			files = (
 				2011F1C529E63B100028C911 /* LaunchScreen.storyboard in Resources */,
 				2011F1C229E63B100028C911 /* Assets.xcassets in Resources */,
-				2039E69E2A25921D00810DDA /* GoogleService-Info.plist in Resources */,
+				2002A1E52A26980F005EE0E4 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,8 +267,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2004F9002A25426600D8BF63 /* UIVIewController+Utils.swift in Sources */,
+				2002A1E92A269C73005EE0E4 /* Constants.swift in Sources */,
 				2011F1D329E63B7C0028C911 /* HomeController.swift in Sources */,
 				200E692F29E7134A00648594 /* AuthButton.swift in Sources */,
+				2002A1E72A269B1B005EE0E4 /* AuthService.swift in Sources */,
 				20DCD5292A2194FE007F7145 /* CustomButton.swift in Sources */,
 				2011F1BD29E63B0F0028C911 /* ViewController.swift in Sources */,
 				20E21D8F2A2556BB00D6085E /* LoginViewModel.swift in Sources */,

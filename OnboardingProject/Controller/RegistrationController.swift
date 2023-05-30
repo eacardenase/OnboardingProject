@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class RegistrationController: UIViewController {
     
@@ -95,7 +96,27 @@ extension RegistrationController {
 
 extension RegistrationController {
     @objc private func handleSignUp(_ sender: UIButton) -> Void {
-        print("DEBUG: Handle sign up")
+        guard let email = emailTextField.text,
+              let password = passwordTextField.text,
+              let fullName = fullNameTextField.text else { return }
+        
+        let credentials = AuthCredentials(fullName: fullName, email: email.lowercased(), password: password)
+        
+        AuthService.registerUser(withCredentials: credentials) { error in
+            if let error = error {
+                print("DEBUG: Failed to upload user data with error: \(error.localizedDescription)")
+                
+                let ac = UIAlertController(title: "Oops!", message: error.localizedDescription, preferredStyle: .alert)
+                
+                ac.addAction(UIAlertAction(title: "OK", style: .default))
+                
+                self.present(ac, animated: true)
+                
+                return
+            }
+            
+            print("DEBUG: Successfully created user and uploaded user info")
+        }
     }
     
     @objc private func showLoginController(_ sender: UIButton) -> Void {
