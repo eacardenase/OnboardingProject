@@ -34,6 +34,7 @@
 		20E21D932A2556E500D6085E /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E21D922A2556E500D6085E /* ResetPasswordViewModel.swift */; };
 		20E21D952A2561AB00D6085E /* AuthenticationViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E21D942A2561AB00D6085E /* AuthenticationViewModelProtocol.swift */; };
 		20E21D972A25661700D6085E /* AuthFormViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E21D962A25661700D6085E /* AuthFormViewModelProtocol.swift */; };
+		20F73B7D2A26F33500704E52 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 20F73B7C2A26F33500704E52 /* GoogleSignIn */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 				2039E69A2A2591D500810DDA /* FirebaseFirestore in Frameworks */,
 				2039E69C2A2591D500810DDA /* FirebaseStorage in Frameworks */,
 				2039E6A42A25935700810DDA /* PaperOnboarding in Frameworks */,
+				20F73B7D2A26F33500704E52 /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,6 +207,7 @@
 				2039E69B2A2591D500810DDA /* FirebaseStorage */,
 				2039E6A02A2592D900810DDA /* JGProgressHUD */,
 				2039E6A32A25935700810DDA /* PaperOnboarding */,
+				20F73B7C2A26F33500704E52 /* GoogleSignIn */,
 			);
 			productName = OnboardingProject;
 			productReference = 2011F1B529E63B0F0028C911 /* OnboardingProject.app */;
@@ -238,6 +241,7 @@
 				2039E6962A2591D500810DDA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				2039E69F2A2592D900810DDA /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 				2039E6A22A25935700810DDA /* XCRemoteSwiftPackageReference "paper-onboarding" */,
+				20F73B7B2A26F33500704E52 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = 2011F1B629E63B0F0028C911 /* Products */;
 			projectDirPath = "";
@@ -518,6 +522,14 @@
 				minimumVersion = 6.0.0;
 			};
 		};
+		20F73B7B2A26F33500704E52 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -545,6 +557,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2039E6A22A25935700810DDA /* XCRemoteSwiftPackageReference "paper-onboarding" */;
 			productName = PaperOnboarding;
+		};
+		20F73B7C2A26F33500704E52 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 20F73B7B2A26F33500704E52 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

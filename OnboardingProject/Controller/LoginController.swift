@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import GoogleSignIn
 
 class LoginController: UIViewController {
     
@@ -160,7 +161,9 @@ extension LoginController {
     }
     
     @objc private func handleGoogleLogin(_ sender: UIButton) {
-        print("DEBUG: Handle login with Google")
+        GIDSignIn.sharedInstance.signIn(withPresenting: self) { result, error in
+            print("DEBUG: Handle Google sign in")
+        }
     }
     
     @objc private func showRegistrationController(_ sender: UIButton) {
