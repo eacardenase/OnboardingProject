@@ -161,8 +161,22 @@ extension LoginController {
     }
     
     @objc private func handleGoogleLogin(_ sender: UIButton) {
-        GIDSignIn.sharedInstance.signIn(withPresenting: self) { result, error in
-            print("DEBUG: Handle Google sign in")
+        AuthService.signInWithGoogle(withPresenting: self) { error in
+            if let error = error {
+                print("DEBUG: Failed to upload user data with error: \(error.localizedDescription)")
+                
+                let ac = UIAlertController(title: "Oops!", message: error.localizedDescription, preferredStyle: .alert)
+                
+                ac.addAction(UIAlertAction(title: "OK", style: .default))
+                
+                self.present(ac, animated: true)
+                
+                return
+            }
+            
+            print("DEBUG: Successfully signed in with Google")
+            
+            self.dismiss(animated: true)
         }
     }
     

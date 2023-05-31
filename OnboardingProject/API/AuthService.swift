@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseStorage
+import GoogleSignIn
 
 struct AuthCredentials {
     let fullName: String
@@ -42,5 +43,44 @@ struct AuthService {
     
     static func logUserIn(withEmail email: String, password: String, completion: ((AuthDataResult?, Error?) -> Void)?) {
         Auth.auth().signIn(withEmail: email, password: password, completion: completion)
+    }
+    
+    static func signInWithGoogle(withPresenting controller: UIViewController, completion: ((Error?) -> Void)?) {
+        GIDSignIn.sharedInstance.signIn(withPresenting: controller) { signInResult, error in
+            guard error == nil else { return }
+            guard let signInResult = signInResult else { return }
+            
+            let user = signInResult.user
+            
+            guard let userID = user.idToken,
+                  let userEmail = user.profile?.email,
+                  let userName = user.profile?.name
+            else { return }
+            
+            let credential = GoogleAuthProvider.credential(withIDToken: userID.tokenString,
+                                                           accessToken: user.accessToken.tokenString)
+            
+            Auth.auth().signIn(with: credential) { result, error in
+                if let error = error {
+                    print("DEBUG: Failed to sign in with Google: \(error.localizedDescription)")
+                    
+                    return
+                }
+                
+                guard let uid = result?.user.uid else {
+                    print("DEBUG: Failed getting uid")
+                    
+                    return
+                }
+                
+                let data = [
+                    "fullName": userName,
+                    "email": userEmail,
+                    "uid": uid
+                ] as [String: Any]
+                
+                K.FStore.COLLECTION_USERS.document(uid).setData(data, completion: completion)
+            }
+        }
     }
 }
