@@ -56,12 +56,8 @@ extension HomeController {
             print("DEBUG: User is logged in!")
         }
     }
-}
-
-// MARK: - Actions
-
-extension HomeController {
-    @objc private func handleLogout() {
+    
+    private func logout(_ alertAction: UIAlertAction) -> Void {
         do {
             try Auth.auth().signOut()
             
@@ -69,5 +65,18 @@ extension HomeController {
         } catch {
             print("DEBUG: Failed to sign out with error: \(error.localizedDescription)")
         }
+    }
+}
+
+// MARK: - Actions
+
+extension HomeController {
+    @objc private func handleLogout() {
+        let ac = UIAlertController(title: nil, message: "Are your sure you want to log out?", preferredStyle: .actionSheet)
+        
+        ac.addAction(UIAlertAction(title: "Log Out", style: .destructive, handler: self.logout))
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+        present(ac, animated: true)
     }
 }
