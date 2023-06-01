@@ -134,7 +134,8 @@ extension OnboardingController: PaperOnboardingDataSource {
 
 extension OnboardingController: PaperOnboardingDelegate {
     func onboardingDidTransitonToIndex(_ index: Int) {
-        let shouldShow = index == onboardingItems.count - 1 ? true : false
+        let viewModel = OnboardingViewModel(itemsCount: onboardingItems.count)
+        let shouldShow = viewModel.shouldShowGetStartedButton(for: index)
         
         animateGetStartedButton(shouldShow)
     }

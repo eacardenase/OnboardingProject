@@ -27,6 +27,7 @@
 		2039E6A12A2592D900810DDA /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 2039E6A02A2592D900810DDA /* JGProgressHUD */; };
 		2039E6A42A25935700810DDA /* PaperOnboarding in Frameworks */ = {isa = PBXBuildFile; productRef = 2039E6A32A25935700810DDA /* PaperOnboarding */; };
 		207203282A2813780079ED14 /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207203272A2813780079ED14 /* OnboardingController.swift */; };
+		2072032A2A282B890079ED14 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207203292A282B890079ED14 /* OnboardingViewModel.swift */; };
 		2077B0882A225516004108DA /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2077B0872A225516004108DA /* RegistrationController.swift */; };
 		20DCD5272A218D1C007F7145 /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DCD5262A218D1C007F7145 /* DividerView.swift */; };
 		20DCD5292A2194FE007F7145 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DCD5282A2194FE007F7145 /* CustomButton.swift */; };
@@ -57,6 +58,7 @@
 		2011F1D429E63B8B0028C911 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		2011F1D629E6400F0028C911 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		207203272A2813780079ED14 /* OnboardingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
+		207203292A282B890079ED14 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		2077B0872A225516004108DA /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		20DCD5262A218D1C007F7145 /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
 		20DCD5282A2194FE007F7145 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				20E21D8D2A2556A500D6085E /* authentication */,
+				207203292A282B890079ED14 /* OnboardingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				20E21D972A25661700D6085E /* AuthFormViewModelProtocol.swift in Sources */,
 				2077B0882A225516004108DA /* RegistrationController.swift in Sources */,
 				20E21D952A2561AB00D6085E /* AuthenticationViewModelProtocol.swift in Sources */,
+				2072032A2A282B890079ED14 /* OnboardingViewModel.swift in Sources */,
 				2011F1D529E63B8B0028C911 /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
