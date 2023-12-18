@@ -21,7 +21,7 @@ class OnboardingController: UIViewController {
         button.setTitle("Get Started", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 24)
-        button.addTarget(OnboardingController.self, action: #selector(dismissOnboarding), for: .touchUpInside)
+        button.addTarget(self, action: #selector(dismissOnboarding), for: .touchUpInside)
         
         return button
     }()

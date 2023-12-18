@@ -35,9 +35,11 @@ class CustomTextField: UITextField {
 extension CustomTextField {
     private func configureUI() {
         let spacer = UIView()
-
-        spacer.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        spacer.widthAnchor.constraint(equalToConstant: 12).isActive = true
+        
+        NSLayoutConstraint.activate([
+            spacer.heightAnchor.constraint(equalToConstant: 50),
+            spacer.widthAnchor.constraint(equalToConstant: 12)
+        ])
 
         leftView = spacer
         leftViewMode = .always
@@ -48,7 +50,7 @@ extension CustomTextField {
         textColor = .white
         keyboardAppearance = .dark // gives us a dark keyboard
         backgroundColor = UIColor(white: 1, alpha: 0.1)
-        layer.cornerRadius = 5
+        layer.cornerRadius = 10
         isSecureTextEntry = isSecure
         attributedPlaceholder = NSAttributedString(string: placeholderText, attributes: [
             NSAttributedString.Key.foregroundColor: UIColor(white: 1, alpha: 0.7)

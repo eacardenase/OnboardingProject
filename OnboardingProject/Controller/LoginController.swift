@@ -64,6 +64,10 @@ class LoginController: UIViewController {
         configureUI()
         configureNotificationObservers()
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 }
 
 // MARK: - Helpers

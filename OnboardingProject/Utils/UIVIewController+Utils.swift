@@ -10,7 +10,7 @@ import UIKit
 extension UIViewController {
     func configureGradientLayer() {
         let topColor = UIColor.systemPurple
-        let bottomColor = UIColor.systemCyan
+        let bottomColor = UIColor.systemBlue
         let gradientLayer = CAGradientLayer()
         
         gradientLayer.colors = [topColor.cgColor, bottomColor.cgColor]
