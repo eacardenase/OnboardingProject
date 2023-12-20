@@ -178,8 +178,6 @@ extension LoginController {
                 return
             }
             
-            print("DEBUG: Successfully signed in with Google")
-            
             self.dismiss(animated: true)
         }
     }

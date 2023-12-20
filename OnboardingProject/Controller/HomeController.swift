@@ -52,8 +52,6 @@ extension HomeController {
     private func checkIfUserIsLoggedIn() {
         if Auth.auth().currentUser == nil {
             presentLoginController()
-        } else {
-            print("DEBUG: User is logged in!")
         }
     }
     
