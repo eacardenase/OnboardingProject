@@ -24,7 +24,7 @@ class RegistrationController: UIViewController {
         
         return button
     }()
-    private let stackView = UIStackView()
+    private let firstStackView = UIStackView()
     private let iconImage = UIImageView(image: UIImage(named: "firebase-logo"))
     private let fullNameTextField = CustomTextField(placeholder: "Fullname")
     private let emailTextField = CustomTextField(placeholder: "Email")
@@ -39,6 +39,8 @@ class RegistrationController: UIViewController {
         
         return button
     }()
+    private let secondStackView = UIStackView()
+    private let dividerView = DividerView()
     private let alreadyHaveAccountButton: UIButton = {
         let button = CustomButton(title: "Already have an account?", subtitle: "Log In")
         
@@ -69,20 +71,26 @@ extension RegistrationController {
         
         backButton.translatesAutoresizingMaskIntoConstraints = false
         iconImage.translatesAutoresizingMaskIntoConstraints = false
-        stackView.translatesAutoresizingMaskIntoConstraints = false
+        firstStackView.translatesAutoresizingMaskIntoConstraints = false
+        secondStackView.translatesAutoresizingMaskIntoConstraints = false
         alreadyHaveAccountButton.translatesAutoresizingMaskIntoConstraints = false
         
-        stackView.axis = .vertical
-        stackView.spacing = 20
+        firstStackView.axis = .vertical
+        firstStackView.spacing = 20
+        secondStackView.axis = .vertical
+        secondStackView.spacing = 28
         
-        stackView.addArrangedSubview(fullNameTextField)
-        stackView.addArrangedSubview(emailTextField)
-        stackView.addArrangedSubview(passwordTextField)
-        stackView.addArrangedSubview(signUpButton)
+        firstStackView.addArrangedSubview(fullNameTextField)
+        firstStackView.addArrangedSubview(emailTextField)
+        firstStackView.addArrangedSubview(passwordTextField)
+        firstStackView.addArrangedSubview(signUpButton)
+        
+        secondStackView.addArrangedSubview(dividerView)
         
         view.addSubview(backButton)
         view.addSubview(iconImage)
-        view.addSubview(stackView)
+        view.addSubview(firstStackView)
+        view.addSubview(secondStackView)
         view.addSubview(alreadyHaveAccountButton)
         
         // backButton
@@ -101,9 +109,16 @@ extension RegistrationController {
         
         // stackView
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: iconImage.bottomAnchor, constant: 32),
-            stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 32),
-            stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -32)
+            firstStackView.topAnchor.constraint(equalTo: iconImage.bottomAnchor, constant: 32),
+            firstStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 32),
+            firstStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -32)
+        ])
+        
+        // secondStackView
+        NSLayoutConstraint.activate([
+            secondStackView.topAnchor.constraint(equalTo: firstStackView.bottomAnchor, constant: 24),
+            secondStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 32),
+            secondStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -32)
         ])
         
         // alreadyHaveAccountButton
@@ -137,7 +152,7 @@ extension RegistrationController {
                 return
             }
             
-            print("DEBUG: Successfully created user and uploaded user info")
+            self.dismiss(animated: true)
         }
     }
     

@@ -21,6 +21,9 @@ class HomeController: UIViewController {
         configureUI()
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 }
 
 // MARK: - Helpers
@@ -34,7 +37,7 @@ extension HomeController {
         
         navigationItem.title = "Firebase Login"
         
-        let logoutImage = UIImage(systemName: "person.fill")!.withTintColor(.white, renderingMode: .alwaysOriginal)
+        let logoutImage = UIImage(systemName: "person.circle.fill")!.withTintColor(.white, renderingMode: .alwaysOriginal)
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: logoutImage, style: .plain, target: self, action: #selector(handleLogout))
     }
     
@@ -56,12 +59,8 @@ extension HomeController {
     }
     
     private func logout(_ alertAction: UIAlertAction) -> Void {
-        do {
-            try Auth.auth().signOut()
-            
+        AuthService.logUserOut {
             presentLoginController()
-        } catch {
-            print("DEBUG: Failed to sign out with error: \(error.localizedDescription)")
         }
     }
 }

@@ -45,6 +45,16 @@ struct AuthService {
         Auth.auth().signIn(withEmail: email, password: password, completion: completion)
     }
     
+    static func logUserOut(_ completion: () -> Void) {
+        do {
+            try Auth.auth().signOut()
+            
+            completion()
+        } catch {
+            print("DEBUG: Failed to sign out with error: \(error.localizedDescription)")
+        }
+    }
+    
     static func signInWithGoogle(withPresenting controller: UIViewController, completion: ((Error?) -> Void)?) {
         GIDSignIn.sharedInstance.signIn(withPresenting: controller) { signInResult, error in
             guard error == nil else { return }
