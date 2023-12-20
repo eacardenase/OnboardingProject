@@ -50,7 +50,7 @@ extension CustomTextField {
         textColor = .white
         keyboardAppearance = .dark // gives us a dark keyboard
         backgroundColor = UIColor(white: 1, alpha: 0.1)
-        layer.cornerRadius = 10
+        layer.cornerRadius = 5
         isSecureTextEntry = isSecure
         attributedPlaceholder = NSAttributedString(string: placeholderText, attributes: [
             NSAttributedString.Key.foregroundColor: UIColor(white: 1, alpha: 0.7)

@@ -14,6 +14,16 @@ class RegistrationController: UIViewController {
     
     private var viewModel = RegistrationViewModel()
     
+    private let backButton: UIButton = {
+        let button = UIButton(type: .system)
+        
+        button.tintColor = .white
+        button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        button.addTarget(self, action: #selector(showLoginController), for: .touchUpInside)
+        
+        return button
+    }()
     private let stackView = UIStackView()
     private let iconImage = UIImageView(image: UIImage(named: "firebase-logo"))
     private let fullNameTextField = CustomTextField(placeholder: "Fullname")
@@ -45,6 +55,10 @@ class RegistrationController: UIViewController {
         configureUI()
         configureNotificationObservers()
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 }
 
 // MARK: - Helpers
@@ -53,6 +67,7 @@ extension RegistrationController {
     private func configureUI() {
         configureGradientLayer()
         
+        backButton.translatesAutoresizingMaskIntoConstraints = false
         iconImage.translatesAutoresizingMaskIntoConstraints = false
         stackView.translatesAutoresizingMaskIntoConstraints = false
         alreadyHaveAccountButton.translatesAutoresizingMaskIntoConstraints = false
@@ -65,9 +80,16 @@ extension RegistrationController {
         stackView.addArrangedSubview(passwordTextField)
         stackView.addArrangedSubview(signUpButton)
         
+        view.addSubview(backButton)
         view.addSubview(iconImage)
         view.addSubview(stackView)
         view.addSubview(alreadyHaveAccountButton)
+        
+        // backButton
+        NSLayoutConstraint.activate([
+            backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            backButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16)
+        ])
         
         // iconImage
         NSLayoutConstraint.activate([
