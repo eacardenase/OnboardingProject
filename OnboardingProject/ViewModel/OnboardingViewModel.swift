@@ -9,7 +9,7 @@ import Foundation
 
 struct OnboardingViewModel {
     
-    let itemsCount: Int
+    private let itemsCount: Int
     
     init(itemsCount: Int) {
         self.itemsCount = itemsCount

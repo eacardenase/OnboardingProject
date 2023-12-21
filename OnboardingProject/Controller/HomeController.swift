@@ -12,6 +12,8 @@ class HomeController: UIViewController {
     
     // MARK: - Properties
     
+    private var shouldShowOnboarding: Bool = true
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -44,7 +46,7 @@ extension HomeController {
     private func presentLoginController() {
         DispatchQueue.main.async {
             let controller = LoginController()
-            let nav = UINavigationController(rootViewController: controller)
+            let nav = MainNavigationController(rootViewController: controller)
             
             nav.modalPresentationStyle = .fullScreen
             
@@ -52,10 +54,26 @@ extension HomeController {
         }
     }
     
+    private func presentOnboardingController() {
+        DispatchQueue.main.async {
+            let controller = OnboardingController()
+            
+            controller.modalPresentationStyle = .fullScreen
+            controller.delegate = self
+            
+            self.present(controller, animated: true)
+        }
+    }
+    
     private func checkIfUserIsLoggedIn() {
         if Auth.auth().currentUser == nil {
             presentLoginController()
+        } else {
+            if shouldShowOnboarding {
+                presentOnboardingController()
+            }
         }
+        
     }
     
     private func logout(_ alertAction: UIAlertAction) -> Void {
@@ -75,5 +93,14 @@ extension HomeController {
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         
         present(ac, animated: true)
+    }
+}
+
+// MARK: - OnboardingControllerDelegate
+
+extension HomeController: OnboardingControllerDelegate {
+    func controllerWantsToDismiss(_ controller: OnboardingController) {
+        controller.dismiss(animated: true)
+        shouldShowOnboarding.toggle()
     }
 }

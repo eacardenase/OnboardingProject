@@ -25,6 +25,8 @@
 		2039E69C2A2591D500810DDA /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 2039E69B2A2591D500810DDA /* FirebaseStorage */; };
 		2039E6A12A2592D900810DDA /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 2039E6A02A2592D900810DDA /* JGProgressHUD */; };
 		2039E6A42A25935700810DDA /* PaperOnboarding in Frameworks */ = {isa = PBXBuildFile; productRef = 2039E6A32A25935700810DDA /* PaperOnboarding */; };
+		20702D7D2B34F28800D8A676 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20702D7C2B34F28800D8A676 /* MainNavigationController.swift */; };
+		20702D802B3502DE00D8A676 /* OnboardingControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20702D7F2B3502DE00D8A676 /* OnboardingControllerDelegate.swift */; };
 		207203282A2813780079ED14 /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207203272A2813780079ED14 /* OnboardingController.swift */; };
 		2072032A2A282B890079ED14 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207203292A282B890079ED14 /* OnboardingViewModel.swift */; };
 		2077B0882A225516004108DA /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2077B0872A225516004108DA /* RegistrationController.swift */; };
@@ -55,6 +57,8 @@
 		2011F1D229E63B7C0028C911 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		2011F1D429E63B8B0028C911 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		2011F1D629E6400F0028C911 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		20702D7C2B34F28800D8A676 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		20702D7F2B3502DE00D8A676 /* OnboardingControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingControllerDelegate.swift; sourceTree = "<group>"; };
 		207203272A2813780079ED14 /* OnboardingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
 		207203292A282B890079ED14 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		2077B0872A225516004108DA /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
@@ -151,7 +155,8 @@
 			isa = PBXGroup;
 			children = (
 				2011F1D229E63B7C0028C911 /* HomeController.swift */,
-				207203272A2813780079ED14 /* OnboardingController.swift */,
+				20702D7C2B34F28800D8A676 /* MainNavigationController.swift */,
+				20702D7E2B3502C100D8A676 /* Onboarding */,
 				20E21D962A25661700D6085E /* AuthFormViewModelProtocol.swift */,
 				2004F8FD2A25395B00D8BF63 /* ResetPasswordController.swift */,
 				2011F1D429E63B8B0028C911 /* LoginController.swift */,
@@ -175,6 +180,15 @@
 				2002A1E82A269C73005EE0E4 /* Constants.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		20702D7E2B3502C100D8A676 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				207203272A2813780079ED14 /* OnboardingController.swift */,
+				20702D7F2B3502DE00D8A676 /* OnboardingControllerDelegate.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		20E21D8D2A2556A500D6085E /* authentication */ = {
@@ -280,6 +294,7 @@
 				2002A1E72A269B1B005EE0E4 /* AuthService.swift in Sources */,
 				20DCD5292A2194FE007F7145 /* CustomButton.swift in Sources */,
 				20E21D8F2A2556BB00D6085E /* LoginViewModel.swift in Sources */,
+				20702D7D2B34F28800D8A676 /* MainNavigationController.swift in Sources */,
 				207203282A2813780079ED14 /* OnboardingController.swift in Sources */,
 				200E692D29E70F9100648594 /* CustomTextField.swift in Sources */,
 				2011F1B929E63B0F0028C911 /* AppDelegate.swift in Sources */,
@@ -289,6 +304,7 @@
 				2011F1BB29E63B0F0028C911 /* SceneDelegate.swift in Sources */,
 				20DCD5272A218D1C007F7145 /* DividerView.swift in Sources */,
 				20E21D972A25661700D6085E /* AuthFormViewModelProtocol.swift in Sources */,
+				20702D802B3502DE00D8A676 /* OnboardingControllerDelegate.swift in Sources */,
 				2077B0882A225516004108DA /* RegistrationController.swift in Sources */,
 				20E21D952A2561AB00D6085E /* AuthenticationViewModelProtocol.swift in Sources */,
 				2072032A2A282B890079ED14 /* OnboardingViewModel.swift in Sources */,

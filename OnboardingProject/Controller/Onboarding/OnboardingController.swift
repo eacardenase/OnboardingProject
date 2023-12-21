@@ -11,8 +11,9 @@ import PaperOnboarding
 class OnboardingController: UIViewController {
 
     // MARK: - Properties
-
-    private var onboardingItems = [OnboardingItemInfo]()
+    
+    weak var delegate: OnboardingControllerDelegate?
+    private var onboardingItems: [OnboardingItemInfo] = []
     private var onboardingView = PaperOnboarding()
     
     private let getStartedButton: UIButton = {
@@ -77,21 +78,21 @@ extension OnboardingController {
                                        title: K.Onboarding.MSG_METRICS, description: K.Onboarding.MSG_ONBOARDING_METRICS,
                                        pageIcon: UIImage(), color: .systemPurple, titleColor: .white,
                                        descriptionColor: .white, titleFont: UIFont.systemFont(ofSize: 24),
-                                       descriptionFont: UIFont.systemFont(ofSize: 16))
+                                       descriptionFont: UIFont.systemFont(ofSize: 16), descriptionLabelPadding: 32)
 
         let dashboardItem = OnboardingItemInfo(informationImage:
                                        UIImage(named: "baseline_dashboard_white_48pt")!.withRenderingMode(.alwaysOriginal),
                                        title: K.Onboarding.MSG_DASHBOARD, description: K.Onboarding.MSG_ONBOARDING_DASHBOARD,
                                        pageIcon: UIImage(), color: .systemBlue, titleColor: .white,
                                        descriptionColor: .white, titleFont: UIFont.systemFont(ofSize: 24),
-                                       descriptionFont: UIFont.systemFont(ofSize: 16))
+                                       descriptionFont: UIFont.systemFont(ofSize: 16), descriptionLabelPadding: 32)
 
         let notificationsItem = OnboardingItemInfo(informationImage:
                                        UIImage(named: "baseline_notifications_active_white_48pt")!.withRenderingMode(.alwaysOriginal),
                                        title: K.Onboarding.MSG_NOTIFICATIONS, description: K.Onboarding.MSG_ONBOARDING_NOTIFICATIONS,
                                        pageIcon: UIImage(), color: .systemPink, titleColor: .white,
                                        descriptionColor: .white, titleFont: UIFont.systemFont(ofSize: 24),
-                                       descriptionFont: UIFont.systemFont(ofSize: 16))
+                                       descriptionFont: UIFont.systemFont(ofSize: 16), descriptionLabelPadding: 32)
 
         onboardingItems.append(metricsItem)
         onboardingItems.append(dashboardItem)
@@ -114,7 +115,9 @@ extension OnboardingController {
 
 extension OnboardingController {
     @objc private func dismissOnboarding(_ sender: UIButton) -> Void {
-        print("DEBUG: Handle dismiss onboarding")
+//        dismiss(animated: true)
+        
+        delegate?.controllerWantsToDismiss(self)
     }
 }
 
