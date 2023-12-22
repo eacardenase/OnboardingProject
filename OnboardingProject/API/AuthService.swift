@@ -108,4 +108,10 @@ struct AuthService {
             completion(user)
         }
     }
+    
+    static func updateUserHasSeenOnboarding(completion: ((Error?) -> Void)?) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        
+        K.FStore.COLLECTION_USERS.document(uid).setData(["hasSeenOnboarding" : true], merge: true, completion: completion)
+    }
 }

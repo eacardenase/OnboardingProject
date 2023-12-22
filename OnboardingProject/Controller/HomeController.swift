@@ -12,7 +12,11 @@ class HomeController: UIViewController {
     
     // MARK: - Properties
     
-    private var shouldShowOnboarding: Bool = true
+    private var user: User? {
+        didSet {
+            presentOnboardingIfNeccessary()
+        }
+    }
     
     // MARK: - Lifecycle
     
@@ -54,7 +58,11 @@ extension HomeController {
         }
     }
     
-    private func presentOnboardingController() {
+    private func presentOnboardingIfNeccessary() {
+        
+        guard let user = user else { return }
+        guard !user.hasSeenOnboarding else { return }
+        
         DispatchQueue.main.async {
             let controller = OnboardingController()
             
@@ -63,6 +71,7 @@ extension HomeController {
             
             self.present(controller, animated: true)
         }
+        
     }
 }
 
@@ -73,7 +82,7 @@ extension HomeController {
     private func checkIfUserIsLoggedIn() {
         if Auth.auth().currentUser == nil {
             presentLoginController()
-        } else { 
+        } else {
             fetchUser()
         }
         
@@ -87,8 +96,7 @@ extension HomeController {
     
     private func fetchUser() {
         AuthService.fetchUser { user in
-            print("DEBUG: User is \(user.fullName).")
-            print("DEBUG: User has seen onboarding \(user.hasSeenOnboarding).")
+            self.user = user
         }
     }
 }
@@ -111,6 +119,14 @@ extension HomeController {
 extension HomeController: OnboardingControllerDelegate {
     func controllerWantsToDismiss(_ controller: OnboardingController) {
         controller.dismiss(animated: true)
-        shouldShowOnboarding.toggle()
+        
+        AuthService.updateUserHasSeenOnboarding { error in
+            if let error = error {
+                print("DEBUG: Error updating user hasSeenOnboarding with error \(error.localizedDescription)")
+            }
+            
+            print("DEBUG: Did set hasSeenOnboarding")
+            self.user?.hasSeenOnboarding = true
+        }
     }
 }

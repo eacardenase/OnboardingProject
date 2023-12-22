@@ -10,7 +10,7 @@ import Foundation
 struct User {
     let email: String
     let fullName: String
-    let hasSeenOnboarding: Bool
+    var hasSeenOnboarding: Bool
     let uid: String
     
     init(uid: String, dictionary: [String: Any]) {
