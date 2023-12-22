@@ -64,14 +64,17 @@ extension HomeController {
             self.present(controller, animated: true)
         }
     }
+}
+
+// MARK: - API
+
+extension HomeController {
     
     private func checkIfUserIsLoggedIn() {
         if Auth.auth().currentUser == nil {
             presentLoginController()
-        } else {
-            if shouldShowOnboarding {
-                presentOnboardingController()
-            }
+        } else { 
+            fetchUser()
         }
         
     }
@@ -79,6 +82,13 @@ extension HomeController {
     private func logout(_ alertAction: UIAlertAction) -> Void {
         AuthService.logUserOut {
             presentLoginController()
+        }
+    }
+    
+    private func fetchUser() {
+        AuthService.fetchUser { user in
+            print("DEBUG: User is \(user.fullName).")
+            print("DEBUG: User has seen onboarding \(user.hasSeenOnboarding).")
         }
     }
 }

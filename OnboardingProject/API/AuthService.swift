@@ -34,7 +34,7 @@ struct AuthService {
             let data = [
                 "fullName": credentials.fullName,
                 "email": credentials.email,
-                "uid": uid
+                "hasSeenOnboarding": false
             ] as [String: Any]
             
             K.FStore.COLLECTION_USERS.document(uid).setData(data, completion: completion)
@@ -86,11 +86,26 @@ struct AuthService {
                 let data = [
                     "fullName": userName,
                     "email": userEmail,
-                    "uid": uid
+                    "hasSeenOnboarding": false
                 ] as [String: Any]
                 
                 K.FStore.COLLECTION_USERS.document(uid).setData(data, completion: completion)
             }
+        }
+    }
+    
+    static func fetchUser(completion: @escaping(User) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        
+        K.FStore.COLLECTION_USERS.document(uid).getDocument { snapshot, error in
+            if let error = error {
+                print("DEBUG: error \(error.localizedDescription)")
+            }
+            
+            guard let userData = snapshot?.data() else { return }
+            let user = User(uid: uid, dictionary: userData)
+                        
+            completion(user)
         }
     }
 }

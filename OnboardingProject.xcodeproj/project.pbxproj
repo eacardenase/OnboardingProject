@@ -27,6 +27,7 @@
 		2039E6A42A25935700810DDA /* PaperOnboarding in Frameworks */ = {isa = PBXBuildFile; productRef = 2039E6A32A25935700810DDA /* PaperOnboarding */; };
 		20702D7D2B34F28800D8A676 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20702D7C2B34F28800D8A676 /* MainNavigationController.swift */; };
 		20702D802B3502DE00D8A676 /* OnboardingControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20702D7F2B3502DE00D8A676 /* OnboardingControllerDelegate.swift */; };
+		20702D822B351C5400D8A676 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20702D812B351C5400D8A676 /* User.swift */; };
 		207203282A2813780079ED14 /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207203272A2813780079ED14 /* OnboardingController.swift */; };
 		2072032A2A282B890079ED14 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207203292A282B890079ED14 /* OnboardingViewModel.swift */; };
 		2077B0882A225516004108DA /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2077B0872A225516004108DA /* RegistrationController.swift */; };
@@ -59,6 +60,7 @@
 		2011F1D629E6400F0028C911 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		20702D7C2B34F28800D8A676 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		20702D7F2B3502DE00D8A676 /* OnboardingControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingControllerDelegate.swift; sourceTree = "<group>"; };
+		20702D812B351C5400D8A676 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		207203272A2813780079ED14 /* OnboardingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
 		207203292A282B890079ED14 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		2077B0872A225516004108DA /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 		2011F1CD29E63B330028C911 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				20702D812B351C5400D8A676 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				20E21D952A2561AB00D6085E /* AuthenticationViewModelProtocol.swift in Sources */,
 				2072032A2A282B890079ED14 /* OnboardingViewModel.swift in Sources */,
 				2011F1D529E63B8B0028C911 /* LoginController.swift in Sources */,
+				20702D822B351C5400D8A676 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
