@@ -69,7 +69,6 @@ struct AuthService {
             
             let credential = GoogleAuthProvider.credential(withIDToken: userID.tokenString,
                                                            accessToken: user.accessToken.tokenString)
-            
             Auth.auth().signIn(with: credential) { result, error in
                 if let error = error {
                     print("DEBUG: Failed to sign in with Google: \(error.localizedDescription)")
@@ -83,13 +82,22 @@ struct AuthService {
                     return
                 }
                 
-                let data = [
-                    "fullName": userName,
-                    "email": userEmail,
-                    "hasSeenOnboarding": false
-                ] as [String: Any]
-                
-                K.FStore.COLLECTION_USERS.document(uid).setData(data, completion: completion)
+                K.FStore.COLLECTION_USERS.document(uid).getDocument { snapshot, error in
+                    guard let userData = snapshot, let userExist = snapshot?.exists else { return }
+                    
+                    var data = [
+                        "fullName": userName,
+                        "email": userEmail,
+                    ] as [String: Any]
+                    
+                    if !userExist {
+                        data["hasSeenOnboarding"] = false
+                    } else {
+                        data["hasSeenOnboarding"] = userData.get("hasSeenOnboarding") as? Bool
+                    }
+                    
+                    K.FStore.COLLECTION_USERS.document(uid).setData(data, completion: completion)
+                }
             }
         }
     }
