@@ -15,8 +15,19 @@ class HomeController: UIViewController {
     private var user: User? {
         didSet {
             presentOnboardingIfNeccessary()
+            showWelcomeLabel()
         }
     }
+    private let welcomeLabel: UILabel = {
+        let label = UILabel()
+        
+        label.textColor = .white
+        label.font = UIFont.systemFont(ofSize: 28)
+        label.text = "Welcome!"
+        label.alpha = 0
+        
+        return label
+    }()
     
     // MARK: - Lifecycle
     
@@ -45,6 +56,15 @@ extension HomeController {
         
         let logoutImage = UIImage(systemName: "person.circle.fill")!.withTintColor(.white, renderingMode: .alwaysOriginal)
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: logoutImage, style: .plain, target: self, action: #selector(handleLogout))
+        
+        welcomeLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(welcomeLabel)
+        
+        NSLayoutConstraint.activate([
+            welcomeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            welcomeLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+        ])
     }
     
     private func presentLoginController() {
@@ -72,6 +92,16 @@ extension HomeController {
             self.present(controller, animated: true)
         }
         
+    }
+    
+    private func showWelcomeLabel() {
+        guard let user = user else { return }
+        
+        self.welcomeLabel.text = "Welcome \(user.fullName)!"
+        
+        UIView.animate(withDuration: 0.5) {
+            self.welcomeLabel.alpha = 1
+        }
     }
 }
 
