@@ -14,6 +14,7 @@ class LoginController: UIViewController {
     // MARK: - Properties
     
     private var viewModel = LoginViewModel()
+    weak var delegate: AuthenticationDelegate?
     
     private let iconImage = UIImageView(image: UIImage(named: "firebase-logo"))
     private let firstStackView = UIStackView()
@@ -154,7 +155,7 @@ extension LoginController {
                 return
             }
             
-            self.dismiss(animated: true)
+            self.delegate?.authenticationComplete()
         }
     }
     
@@ -178,12 +179,13 @@ extension LoginController {
                 return
             }
             
-            self.dismiss(animated: true)
+            self.delegate?.authenticationComplete()
         }
     }
     
     @objc private func showRegistrationController(_ sender: UIButton) {
         let registrationController = RegistrationController()
+        registrationController.delegate = delegate
         
         navigationController?.pushViewController(registrationController, animated: true)
     }

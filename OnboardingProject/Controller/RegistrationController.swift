@@ -13,6 +13,7 @@ class RegistrationController: UIViewController {
     // MARK: - Properties
     
     private var viewModel = RegistrationViewModel()
+    weak var delegate: AuthenticationDelegate?
     
     private let backButton: UIButton = {
         let button = UIButton(type: .system)
@@ -141,8 +142,6 @@ extension RegistrationController {
         
         AuthService.registerUser(withCredentials: credentials) { error in
             if let error = error {
-                print("DEBUG: Failed to upload user data with error: \(error.localizedDescription)")
-                
                 let ac = UIAlertController(title: "Oops!", message: error.localizedDescription, preferredStyle: .alert)
                 
                 ac.addAction(UIAlertAction(title: "OK", style: .default))
@@ -152,7 +151,7 @@ extension RegistrationController {
                 return
             }
             
-            self.dismiss(animated: true)
+            self.delegate?.authenticationComplete()
         }
     }
     

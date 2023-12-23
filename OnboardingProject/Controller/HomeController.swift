@@ -23,6 +23,9 @@ class HomeController: UIViewController {
         
         label.textColor = .white
         label.font = UIFont.systemFont(ofSize: 28)
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.textAlignment = .center
         label.text = "Welcome!"
         label.alpha = 0
         
@@ -64,12 +67,15 @@ extension HomeController {
         NSLayoutConstraint.activate([
             welcomeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             welcomeLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            welcomeLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            welcomeLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16)
         ])
     }
     
     private func presentLoginController() {
         DispatchQueue.main.async {
             let controller = LoginController()
+            controller.delegate = self
             let nav = MainNavigationController(rootViewController: controller)
             
             nav.modalPresentationStyle = .fullScreen
@@ -96,6 +102,7 @@ extension HomeController {
     
     private func showWelcomeLabel() {
         guard let user = user else { return }
+        guard user.hasSeenOnboarding else { return }
         
         self.welcomeLabel.text = "Welcome \(user.fullName)!"
         
@@ -158,5 +165,15 @@ extension HomeController: OnboardingControllerDelegate {
             print("DEBUG: Did set hasSeenOnboarding")
             self.user?.hasSeenOnboarding = true
         }
+    }
+}
+
+// MARK: - AuthenticationDelegate
+
+extension HomeController: AuthenticationDelegate {
+    func authenticationComplete() {
+        fetchUser()
+        
+        dismiss(animated: true)
     }
 }
