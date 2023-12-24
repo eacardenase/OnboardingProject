@@ -13,6 +13,7 @@ class ResetPasswordController: UIViewController {
     
     private var viewModel = ResetPasswordViewModel()
     var email: String?
+    weak var delegate: ResetPasswordControllerDelegate?
     
     private let iconImage = UIImageView(image: UIImage(named: "firebase-logo"))
     private let stackView = UIStackView()
@@ -98,7 +99,10 @@ extension ResetPasswordController {
     private func loadEmail() {
         guard let email = self.email else { return }
         
+        viewModel.email = email
         emailTextField.text = email
+        
+        updateForm()
     }
 }
 
@@ -107,7 +111,17 @@ extension ResetPasswordController {
 extension ResetPasswordController {
     
     @objc private func handleResetPassword(_ sender: UIButton) -> Void {
-        print("DEBUG: Handle reset password")
+        guard let email = viewModel.email else { return }
+        
+        AuthService.resetPassword(forEmail: email) { error in
+            if let error = error {
+                print("DEBUG: Failed to reset password with error \(error.localizedDescription).")
+                
+                return
+            }
+            
+            self.delegate?.didSendResetPasswordLink()
+        }
     }
     
     @objc private func handleDismissal(_ sender: UIButton) -> Void {

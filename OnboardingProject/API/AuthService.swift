@@ -112,7 +112,7 @@ struct AuthService {
             
             guard let userData = snapshot?.data() else { return }
             let user = User(uid: uid, dictionary: userData)
-                        
+            
             completion(user)
         }
     }
@@ -122,4 +122,9 @@ struct AuthService {
         
         K.FStore.COLLECTION_USERS.document(uid).setData(["hasSeenOnboarding" : true], merge: true, completion: completion)
     }
+    
+    static func resetPassword(forEmail email: String, completion: ((Error?) -> Void)?) {
+        Auth.auth().sendPasswordReset(withEmail: email, completion: completion)
+    }
+    
 }

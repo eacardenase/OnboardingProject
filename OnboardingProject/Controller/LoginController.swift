@@ -163,6 +163,7 @@ extension LoginController {
         let resetPasswordController = ResetPasswordController()
         
         resetPasswordController.email = emailTextField.text
+        resetPasswordController.delegate = self
         
         navigationController?.pushViewController(resetPasswordController, animated: true)
     }
@@ -215,5 +216,15 @@ extension LoginController: AuthFormViewModelProtocol {
         loginButton.isEnabled = viewModel.shouldEnableButton
         loginButton.setTitleColor(viewModel.buttonTitleColor, for: .normal)
         loginButton.backgroundColor = viewModel.buttonBackgroundColor
+    }
+}
+
+// MARK: - ResetPasswordControllerDelegate
+
+extension LoginController: ResetPasswordControllerDelegate {
+    func didSendResetPasswordLink() {
+        print("DEBUG: Send success message here..")
+        
+        navigationController?.popViewController(animated: true)
     }
 }
