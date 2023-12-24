@@ -12,6 +12,7 @@ class ResetPasswordController: UIViewController {
     // MARK: - Properties
     
     private var viewModel = ResetPasswordViewModel()
+    var email: String?
     
     private let iconImage = UIImageView(image: UIImage(named: "firebase-logo"))
     private let stackView = UIStackView()
@@ -42,6 +43,7 @@ class ResetPasswordController: UIViewController {
         super.viewDidLoad()
         
         configureUI()
+        loadEmail()
         configureNotificationObservers()
     }
     
@@ -91,6 +93,12 @@ extension ResetPasswordController {
             stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 32),
             stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -32)
         ])
+    }
+    
+    private func loadEmail() {
+        guard let email = self.email else { return }
+        
+        emailTextField.text = email
     }
 }
 

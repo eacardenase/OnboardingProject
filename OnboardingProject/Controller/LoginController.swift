@@ -158,9 +158,11 @@ extension LoginController {
             self.delegate?.authenticationComplete()
         }
     }
-    
+   
     @objc private func showForgotPassword(_ sender: UIButton) {
         let resetPasswordController = ResetPasswordController()
+        
+        resetPasswordController.email = emailTextField.text
         
         navigationController?.pushViewController(resetPasswordController, animated: true)
     }
