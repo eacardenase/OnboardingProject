@@ -143,9 +143,9 @@ extension RegistrationController {
         let credentials = AuthCredentials(fullName: fullName, email: email.lowercased(), password: password)
         
         AuthService.registerUser(withCredentials: credentials) { error in
+            self.showLoader(false)
+            
             if let error = error {
-                self.showLoader(false)
-                
                 let ac = UIAlertController(title: "Oops!", message: error.localizedDescription, preferredStyle: .alert)
                 
                 ac.addAction(UIAlertAction(title: "OK", style: .default))
@@ -154,7 +154,6 @@ extension RegistrationController {
                 return
             }
             
-            self.showLoader(false)
             self.delegate?.authenticationComplete()
         }
     }

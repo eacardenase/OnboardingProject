@@ -118,6 +118,10 @@ extension ResetPasswordController {
         AuthService.resetPassword(forEmail: email) { error in
             if let error = error {
                 print("DEBUG: Failed to reset password with error \(error.localizedDescription).")
+                let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                let action = UIAlertAction(title: "OK", style: .default)
+                
+                self.present(alertController, animated: true)
                 
                 self.showLoader(false)
                 

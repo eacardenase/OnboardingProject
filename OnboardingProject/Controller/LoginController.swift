@@ -231,7 +231,10 @@ extension LoginController: AuthFormViewModelProtocol {
 
 extension LoginController: ResetPasswordControllerDelegate {
     func didSendResetPasswordLink() {
-        print("DEBUG: Send success message here..")
+        let alertController = UIAlertController(title: "Success", message: "We sent a link to your email to reset your password.", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default)
+        
+        present(alertController, animated: true)
         
         navigationController?.popViewController(animated: true)
     }
