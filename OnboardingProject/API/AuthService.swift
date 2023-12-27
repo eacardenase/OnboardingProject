@@ -20,7 +20,7 @@ struct AuthService {
     static func registerUser(withCredentials credentials: AuthCredentials, completion: ((Error?) -> Void)?) {
         Auth.auth().createUser(withEmail: credentials.email, password: credentials.password) { result, error in
             if let error = error {
-                print("DEBUG: Failed to create user with error: \(error.localizedDescription)")
+                print("DEBUG: Failed to create user with error: \(error.localizedDescription)") 
                 
                 return
             }

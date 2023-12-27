@@ -143,18 +143,21 @@ extension LoginController {
     @objc private func handleLogin(_ sender: UIButton) {
         guard let email = emailTextField.text,
               let password = passwordTextField.text else { return }
+       
+        showLoader(true)
         
         AuthService.logUserIn(withEmail: email, password: password) { result, error in
             if let error = error {
+                self.showLoader(false)
                 let ac = UIAlertController(title: "Oops!", message: error.localizedDescription, preferredStyle: .alert)
                 
                 ac.addAction(UIAlertAction(title: "OK", style: .default))
-                
                 self.present(ac, animated: true)
                 
                 return
             }
             
+            self.showLoader(false)
             self.delegate?.authenticationComplete()
         }
     }
@@ -169,19 +172,24 @@ extension LoginController {
     }
     
     @objc private func handleGoogleLogin(_ sender: UIButton) {
+        
+        showLoader(true)
+        
         AuthService.signInWithGoogle(withPresenting: self) { error in
             if let error = error {
+                self.showLoader(false)
+                
                 print("DEBUG: Failed to upload user data with error: \(error.localizedDescription)")
                 
                 let ac = UIAlertController(title: "Oops!", message: error.localizedDescription, preferredStyle: .alert)
                 
                 ac.addAction(UIAlertAction(title: "OK", style: .default))
-                
                 self.present(ac, animated: true)
                 
                 return
             }
             
+            self.showLoader(false)
             self.delegate?.authenticationComplete()
         }
     }

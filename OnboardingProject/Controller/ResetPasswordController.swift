@@ -112,14 +112,19 @@ extension ResetPasswordController {
     
     @objc private func handleResetPassword(_ sender: UIButton) -> Void {
         guard let email = viewModel.email else { return }
+       
+        showLoader(true)
         
         AuthService.resetPassword(forEmail: email) { error in
             if let error = error {
                 print("DEBUG: Failed to reset password with error \(error.localizedDescription).")
                 
+                self.showLoader(false)
+                
                 return
             }
             
+            self.showLoader(false)
             self.delegate?.didSendResetPasswordLink()
         }
     }
